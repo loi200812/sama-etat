@@ -2,52 +2,52 @@
 <odoo>
     <data noupdate="1">
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_construction_ecoles_rurales'"/>
+            <value eval="'sama_etat.project_construction_ecoles_rurales'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_developpement_agricole'"/>
+            <value eval="'sama_etat.project_developpement_agricole'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_sante_communautaire'"/>
+            <value eval="'sama_etat.project_sante_communautaire'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_infrastructures_routiere'"/>
+            <value eval="'sama_etat.project_infrastructures_routiere'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_energie_renouvelable'"/>
+            <value eval="'sama_etat.project_energie_renouvelable'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_numerisation_services'"/>
+            <value eval="'sama_etat.project_numerisation_services'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_gestion_ressources_eau'"/>
+            <value eval="'sama_etat.project_gestion_ressources_eau'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_education_numerique'"/>
+            <value eval="'sama_etat.project_education_numerique'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_tourisme_durable'"/>
+            <value eval="'sama_etat.project_tourisme_durable'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_developpement_peche'"/>
+            <value eval="'sama_etat.project_developpement_peche'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_assainissement_urbain'"/>
+            <value eval="'sama_etat.project_assainissement_urbain'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_promotion_artisanat'"/>
+            <value eval="'sama_etat.project_promotion_artisanat'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_recherche_scientifique'"/>
+            <value eval="'sama_etat.project_recherche_scientifique'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_protection_environnement'"/>
+            <value eval="'sama_etat.project_protection_environnement'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_modernisation_justice'"/>
+            <value eval="'sama_etat.project_modernisation_justice'"/>
         </function>
         <function model="government.project" name="action_validate_by_xmlid">
-            <value eval="'senegal_gov_project_management.project_soutien_pme'"/>
+            <value eval="'sama_etat.project_soutien_pme'"/>
         </function>
     </data>
 </odoo>

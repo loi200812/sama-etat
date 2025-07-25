@@ -94,7 +94,7 @@
 
         <!-- Page publique pour un projet -->
         <template id="public_project_page" name="Projet - Page Publique">
-            <t t-call="senegal_gov_project_management.public_layout">
+            <t t-call="sama_etat.modern_public_layout">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="senegal-card">
@@ -244,7 +244,7 @@
 
         <!-- Page publique pour un ministère -->
         <template id="public_ministry_page" name="Ministère - Page Publique">
-            <t t-call="senegal_gov_project_management.public_layout">
+            <t t-call="sama_etat.modern_public_layout">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="senegal-card">

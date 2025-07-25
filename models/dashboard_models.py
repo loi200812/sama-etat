@@ -12,15 +12,14 @@ class SenegalPlanDashboard(models.Model):
         dashboard = self.search([], limit=1)
         if not dashboard:
             dashboard = self.create({})
+        # Force recompute of all fields by updating a dummy field
+        dashboard.write({'last_update_date': fields.Datetime.now()})
         return dashboard
     
     @api.model
     def default_get(self, fields):
-        """S'assurer qu'il y a toujours un enregistrement dashboard"""
+        """Valeurs par défaut pour le dashboard"""
         result = super().default_get(fields)
-        dashboard = self.search([], limit=1)
-        if not dashboard:
-            dashboard = self.create({})
         return result
 
     # Statistiques des projets
@@ -37,11 +36,16 @@ class SenegalPlanDashboard(models.Model):
     total_budget = fields.Monetary(string="Budget Total Alloué", currency_field='currency_id', compute='_compute_budget_stats')
     used_budget = fields.Monetary(string="Budget Utilisé", currency_field='currency_id', compute='_compute_budget_stats')
     remaining_budget = fields.Monetary(string="Budget Restant", currency_field='currency_id', compute='_compute_budget_stats')
-    currency_id = fields.Many2one('res.currency', string='Devise', default=lambda self: self._get_default_currency())
+    currency_id = fields.Many2one('res.currency', string='Devise')
 
     @api.model
     def _get_default_currency(self):
-        return self.env['res.currency'].search([('name', '=', 'XOF')], limit=1)
+        """Obtenir la devise XOF par défaut"""
+        try:
+            return self.env['res.currency'].search([('name', '=', 'XOF')], limit=1)
+        except:
+            # Fallback to company currency if XOF not found
+            return self.env.company.currency_id
     
     # Statistiques des objectifs stratégiques
     total_objectives = fields.Integer(string="Objectifs Stratégiques", compute='_compute_objective_stats')
@@ -122,7 +126,7 @@ class SenegalPlanDashboard(models.Model):
     
     def action_view_projects(self):
         """Action pour voir tous les projets"""
-        return self.env.ref('senegal_gov_project_management.government_project_action').read()[0]
+        return self.env.ref('sama_etat.government_project_action').read()[0]
     
     def action_view_active_projects(self):
         """Action pour voir les projets actifs"""
@@ -131,20 +135,20 @@ class SenegalPlanDashboard(models.Model):
             'name': 'Projets Actifs',
             'res_model': 'government.project',
             'view_mode': 'list,form,kanban',
-            'views': [(self.env.ref('senegal_gov_project_management.government_project_view_tree').id, 'list'),
-                      (self.env.ref('senegal_gov_project_management.government_project_view_form').id, 'form'),
-                      (self.env.ref('senegal_gov_project_management.government_project_view_kanban').id, 'kanban')],
+            'views': [(self.env.ref('sama_etat.government_project_view_tree').id, 'list'),
+                      (self.env.ref('sama_etat.government_project_view_form').id, 'form'),
+                      (self.env.ref('sama_etat.government_project_view_kanban').id, 'kanban')],
             'domain': [('status', 'in', ['validated', 'in_progress'])],
             'target': 'current',
         }
     
     def action_view_ministries(self):
         """Action pour voir tous les ministères"""
-        return self.env.ref('senegal_gov_project_management.government_ministry_action').read()[0]
+        return self.env.ref('sama_etat.government_ministry_action').read()[0]
     
     def action_view_budgets(self):
         """Action pour voir tous les budgets"""
-        return self.env.ref('senegal_gov_project_management.government_budget_action').read()[0]
+        return self.env.ref('sama_etat.government_budget_action').read()[0]
     
     def action_view_upcoming_events(self):
         """Action pour voir les événements à venir"""

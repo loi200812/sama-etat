@@ -276,8 +276,99 @@ class GovernmentDecision(models.Model):
     ], string="Statut", default='draft', tracking=True)
     strategic_objective_id = fields.Many2one('strategic.objective', string="Objectif Stratégique", required=True)
     project_id = fields.Many2one('government.project', string="Projet Associé")
+    event_id = fields.Many2one('government.event', string="Événement Associé")
     ministry_id = fields.Many2one('government.ministry', string="Ministère Émetteur")
     is_public = fields.Boolean(string="Public", default=False)
+    
+    # Système de suivi des décisions
+    implementation_status = fields.Selection([
+        ('not_started', 'Non Commencée'),
+        ('in_progress', 'En Cours'),
+        ('partially_completed', 'Partiellement Réalisée'),
+        ('completed', 'Réalisée'),
+        ('delayed', 'Retardée'),
+        ('blocked', 'Bloquée')
+    ], string="État de Mise en Œuvre", default='not_started', tracking=True)
+    
+    implementation_deadline = fields.Date(string="Échéance de Mise en Œuvre", tracking=True)
+    responsible_user_id = fields.Many2one('res.users', string="Responsable de Suivi")
+    progress_percentage = fields.Float(string="Pourcentage d'Avancement", default=0.0, help="Pourcentage d'avancement de la mise en œuvre")
+    
+    # Champs pour les rapports de suivi
+    last_follow_up_date = fields.Date(string="Dernière Date de Suivi")
+    next_follow_up_date = fields.Date(string="Prochaine Date de Suivi")
+    follow_up_notes = fields.Text(string="Notes de Suivi")
+    
+    # Indicateurs de performance
+    is_on_track = fields.Boolean(string="Dans les Temps", compute='_compute_is_on_track', store=True)
+    days_until_deadline = fields.Integer(string="Jours Avant Échéance", compute='_compute_days_until_deadline', store=True)
+    
+    @api.depends('implementation_deadline', 'implementation_status')
+    def _compute_is_on_track(self):
+        from datetime import date
+        for record in self:
+            if record.implementation_deadline and record.implementation_status not in ['completed', 'blocked']:
+                days_left = (record.implementation_deadline - date.today()).days
+                # Considérer comme "dans les temps" si plus de 30 jours restants ou déjà terminé
+                record.is_on_track = days_left > 30 or record.implementation_status == 'completed'
+            else:
+                record.is_on_track = record.implementation_status == 'completed'
+    
+    @api.depends('implementation_deadline')
+    def _compute_days_until_deadline(self):
+        from datetime import date
+        for record in self:
+            if record.implementation_deadline:
+                record.days_until_deadline = (record.implementation_deadline - date.today()).days
+            else:
+                record.days_until_deadline = 0
+    
+    def action_start_implementation(self):
+        """Démarre la mise en œuvre de la décision"""
+        for record in self:
+            record.implementation_status = 'in_progress'
+            record.last_follow_up_date = fields.Date.today()
+    
+    def action_complete_implementation(self):
+        """Marque la décision comme complètement mise en œuvre"""
+        for record in self:
+            record.implementation_status = 'completed'
+            record.progress_percentage = 100.0
+            record.last_follow_up_date = fields.Date.today()
+    
+    def action_mark_delayed(self):
+        """Marque la décision comme retardée"""
+        for record in self:
+            record.implementation_status = 'delayed'
+            record.last_follow_up_date = fields.Date.today()
+    
+    def action_mark_blocked(self):
+        """Marque la décision comme bloquée"""
+        for record in self:
+            record.implementation_status = 'blocked'
+            record.last_follow_up_date = fields.Date.today()
+    
+    def action_create_follow_up_task(self):
+        """Crée une tâche de suivi dans Odoo"""
+        self.ensure_one()
+        task_vals = {
+            'name': f"Suivi Décision: {self.title}",
+            'description': f"Suivi de la mise en œuvre de la décision {self.reference}\n\nDécision: {self.title}\nÉchéance: {self.implementation_deadline}\nStatut actuel: {dict(self._fields['implementation_status'].selection)[self.implementation_status]}",
+            'user_ids': [(6, 0, [self.responsible_user_id.id])] if self.responsible_user_id else [],
+            'date_deadline': self.next_follow_up_date or self.implementation_deadline,
+            'project_id': self.project_id.odoo_project_id.id if self.project_id and self.project_id.odoo_project_id else False,
+        }
+        
+        task = self.env['project.task'].create(task_vals)
+        
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Tâche de Suivi Créée',
+            'res_model': 'project.task',
+            'res_id': task.id,
+            'view_mode': 'form',
+            'target': 'current',
+        }
     
     @api.depends('title', 'reference')
     def _compute_name(self):
@@ -315,6 +406,75 @@ class GovernmentEvent(models.Model):
         ('completed', 'Terminé'),
         ('cancelled', 'Annulé')
     ], string="Statut", default='planned', tracking=True)
+    
+    # Liaison avec les événements Odoo (module calendar)
+    odoo_event_id = fields.Many2one(
+        'calendar.event', 
+        string="Événement Odoo Associé",
+        help="Événement Odoo créé automatiquement pour la gestion du calendrier"
+    )
+    
+    def create_odoo_event(self):
+        """Crée un événement Odoo associé pour la gestion calendaire"""
+        for record in self:
+            if not record.odoo_event_id:
+                event_vals = {
+                    'name': record.name,
+                    'description': record.description,
+                    'start': record.date_start,
+                    'stop': record.date_end,
+                    'location': record.location,
+                    'privacy': 'public',  # Événement public
+                    'show_as': 'busy',
+                }
+                
+                odoo_event = self.env['calendar.event'].create(event_vals)
+                record.odoo_event_id = odoo_event.id
+                
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Événement Odoo Créé',
+            'res_model': 'calendar.event',
+            'res_id': self.odoo_event_id.id,
+            'view_mode': 'form',
+            'target': 'current',
+        }
+    
+    def action_validate(self):
+        """Valide l'événement et crée automatiquement l'événement Odoo associé"""
+        for record in self:
+            if record.status == 'planned':
+                record.status = 'ongoing'
+                if not record.odoo_event_id:
+                    record.create_odoo_event()
+    
+    def action_open_odoo_event(self):
+        """Ouvre l'événement Odoo associé"""
+        self.ensure_one()
+        if not self.odoo_event_id:
+            raise ValidationError("Aucun événement Odoo associé. Veuillez d'abord valider l'événement.")
+        
+        return {
+            'type': 'ir.actions.act_window',
+            'name': f'Événement Odoo - {self.name}',
+            'res_model': 'calendar.event',
+            'res_id': self.odoo_event_id.id,
+            'view_mode': 'form',
+            'target': 'current',
+        }
+    
+    def sync_with_odoo_event(self):
+        """Synchronise les données avec l'événement Odoo associé"""
+        for record in self:
+            if record.odoo_event_id:
+                # Synchroniser les informations de base
+                record.odoo_event_id.write({
+                    'name': record.name,
+                    'description': record.description,
+                    'start': record.date_start,
+                    'stop': record.date_end,
+                    'location': record.location,
+                })
 
 class GovernmentBudget(models.Model):
     _name = 'government.budget'

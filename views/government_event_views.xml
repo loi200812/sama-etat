@@ -5,13 +5,17 @@
         <record id="government_event_view_tree" model="ir.ui.view">
             <field name="name">government.event.tree</field>
             <field name="model">government.event</field>
-                        <field name="type">list</field>
             <field name="arch" type="xml">
-                <list string="Événements Publics">
+                <list string="Événements Publics" decoration-info="status == 'planned'" decoration-success="status == 'completed'" decoration-warning="status == 'ongoing'" decoration-muted="status == 'cancelled'">
                     <field name="name"/>
+                    <field name="event_type"/>
                     <field name="date_start"/>
+                    <field name="date_end"/>
                     <field name="location"/>
+                    <field name="organizer_id"/>
+                    <field name="status" decoration-info="status == 'planned'" decoration-success="status == 'completed'" decoration-warning="status == 'ongoing'" decoration-danger="status == 'cancelled'"/>
                     <field name="strategic_objective_id"/>
+                    <field name="odoo_event_id" invisible="1"/>
                 </list>
             </field>
         </record>
@@ -22,22 +26,68 @@
             <field name="model">government.event</field>
             <field name="arch" type="xml">
                 <form string="Événement Public">
+                    <header>
+                        <!-- Boutons d'action selon le statut -->
+                        <button name="action_validate" type="object" string="Valider" class="btn-primary" invisible="status != 'planned'"/>
+                        <button name="action_open_odoo_event" type="object" string="Voir l'exécution" class="btn-info" invisible="not odoo_event_id"/>
+                        
+                        <field name="status" widget="statusbar" statusbar_visible="planned,ongoing,completed"/>
+                    </header>
                     <sheet>
+                        <!-- Alerte si événement Odoo n'est pas créé -->
+                        <div class="alert alert-info" role="alert" invisible="status == 'planned' or odoo_event_id">
+                            <p><i class="fa fa-info-circle" title="Information"/>  <strong>Événement Odoo non créé:</strong> Validez cet événement pour créer automatiquement l'événement Odoo associé et pouvoir gérer le calendrier.</p>
+                        </div>
+                        
+                        <!-- Widgets statistiques -->
+                        <div class="oe_button_box" name="button_box" invisible="not odoo_event_id">
+                            <button name="action_open_odoo_event" type="object" class="oe_stat_button" icon="fa-calendar" invisible="not odoo_event_id">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">Calendrier</span>
+                                    <span class="o_stat_text">Odoo</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <!-- Titre -->
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Nom de l'événement..."/>
+                            </h1>
+                        </div>
+                        
                         <group>
-                            <group>
-                                <field name="name"/>
+                            <group string="Informations Générales">
                                 <field name="event_type"/>
                                 <field name="date_start"/>
                                 <field name="date_end"/>
-                            </group>
-                            <group>
                                 <field name="location"/>
-                                <field name="organizer_id"/>
-                                <field name="project_id"/>
-                                <field name="strategic_objective_id"/>
+                            </group>
+                            <group string="Organisation">
+                                <field name="organizer_id" options="{'no_create': True}"/>
+                                <field name="project_id" options="{'no_create': True}"/>
+                                <field name="strategic_objective_id" options="{'no_create': True}"/>
+                                <field name="odoo_event_id" readonly="1" invisible="not odoo_event_id"/>
                             </group>
                         </group>
+                        
+                        <notebook>
+                            <page string="Description">
+                                <field name="description" placeholder="Décrivez en détail l'événement, ses objectifs et son déroulement..."/>
+                            </page>
+                            <page string="Informations Techniques" invisible="not odoo_event_id">
+                                <group string="Liaison avec Odoo">
+                                    <p class="text-muted">Cet événement est connecté au système de calendrier d'Odoo pour la gestion des invitations et des rappels.</p>
+                                    <button name="sync_with_odoo_event" type="object" string="Synchroniser avec Odoo" class="btn-warning" invisible="not odoo_event_id"/>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
                 </form>
             </field>
         </record>

@@ -104,6 +104,7 @@
             <field name="used_amount">28000000000</field>
             <field name="ministry_id" ref="ministry_foreign_affairs"/>
             <field name="strategic_objective_id" ref="objective_youth_entrepreneurship"/>
+            <field name="status">active</field>
         </record>
 
     </data>

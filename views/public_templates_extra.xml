@@ -3,7 +3,7 @@
     <data>
         <!-- Page publique pour une décision -->
         <template id="public_decision_page" name="Décision - Page Publique">
-            <t t-call="senegal_gov_project_management.public_layout">
+            <t t-call="sama_etat.modern_public_layout">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="senegal-card">
@@ -114,7 +114,7 @@
 
         <!-- Page publique pour un événement -->
         <template id="public_event_page" name="Événement - Page Publique">
-            <t t-call="senegal_gov_project_management.public_layout">
+            <t t-call="sama_etat.modern_public_layout">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="senegal-card">
@@ -219,7 +219,8 @@
 
         <!-- Page publique pour un budget -->
         <template id="public_budget_page" name="Budget - Page Publique">
-            <t t-call="senegal_gov_project_management.public_layout">
+            <t t-call="sama_etat.modern_public_layout">
+yout">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="senegal-card">
@@ -313,7 +314,7 @@
 
         <!-- Page publique pour un objectif stratégique -->
         <template id="public_objective_page" name="Objectif Stratégique - Page Publique">
-            <t t-call="senegal_gov_project_management.public_layout">
+            <t t-call="sama_etat.modern_public_layout">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="senegal-card">
@@ -426,7 +427,7 @@
 
         <!-- Tableau de bord public -->
         <template id="public_dashboard_page" name="Tableau de Bord Public - Plan Sénégal 2050">
-            <t t-call="senegal_gov_project_management.public_layout">
+            <t t-call="sama_etat.modern_public_layout">
                 <div class="text-center mb-5">
                     <h2>Tableau de Bord Public</h2>
                     <p class="lead">Aperçu des projets et initiatives du Plan Sénégal 2050</p>

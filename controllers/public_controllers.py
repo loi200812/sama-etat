@@ -44,7 +44,7 @@ class PublicSenegalGovController(http.Controller):
                 'qr_code': qr_code,
                 'project_url': project_url,
             }
-            return request.render('senegal_gov_project_management.public_project_page', values)
+            return request.render('sama_etat.public_project_page', values)
         except (AccessError, MissingError):
             return request.render('http_routing.404')
 
@@ -69,7 +69,7 @@ class PublicSenegalGovController(http.Controller):
                 'qr_code': qr_code,
                 'ministry_url': ministry_url,
             }
-            return request.render('senegal_gov_project_management.public_ministry_page', values)
+            return request.render('sama_etat.public_ministry_page', values)
         except (AccessError, MissingError):
             return request.render('http_routing.404')
 
@@ -90,7 +90,7 @@ class PublicSenegalGovController(http.Controller):
                 'qr_code': qr_code,
                 'decision_url': decision_url,
             }
-            return request.render('senegal_gov_project_management.public_decision_page', values)
+            return request.render('sama_etat.public_decision_page', values)
         except (AccessError, MissingError):
             return request.render('http_routing.404')
 
@@ -111,7 +111,7 @@ class PublicSenegalGovController(http.Controller):
                 'qr_code': qr_code,
                 'event_url': event_url,
             }
-            return request.render('senegal_gov_project_management.public_event_page', values)
+            return request.render('sama_etat.public_event_page', values)
         except (AccessError, MissingError):
             return request.render('http_routing.404')
 
@@ -132,7 +132,7 @@ class PublicSenegalGovController(http.Controller):
                 'qr_code': qr_code,
                 'budget_url': budget_url,
             }
-            return request.render('senegal_gov_project_management.public_budget_page', values)
+            return request.render('sama_etat.public_budget_page', values)
         except (AccessError, MissingError):
             return request.render('http_routing.404')
 
@@ -157,7 +157,7 @@ class PublicSenegalGovController(http.Controller):
                 'qr_code': qr_code,
                 'objective_url': objective_url,
             }
-            return request.render('senegal_gov_project_management.public_objective_page', values)
+            return request.render('sama_etat.public_objective_page', values)
         except (AccessError, MissingError):
             return request.render('http_routing.404')
 
@@ -185,7 +185,7 @@ class PublicSenegalGovController(http.Controller):
                 'qr_code': qr_code,
                 'dashboard_url': dashboard_url,
             }
-            return request.render('senegal_gov_project_management.public_dashboard_page', values)
+            return request.render('sama_etat.modern_public_dashboard_page', values)
         except Exception as e:
             return request.render('http_routing.404')
 

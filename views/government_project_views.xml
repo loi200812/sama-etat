@@ -39,7 +39,7 @@
                         <button name="action_reset_to_draft" type="object" string="Remettre en brouillon" invisible="status == 'draft'"/>
                         
                         <!-- Boutons pour accéder au projet Odoo -->
-                        <button name="action_open_odoo_project" type="object" string="Ouvrir Projet Odoo" class="btn-info" invisible="not odoo_project_id"/>
+                        <button name="action_open_odoo_project" type="object" string="Voir l'exécution" class="btn-info" invisible="not odoo_project_id"/>
                         <button name="action_open_odoo_tasks" type="object" string="Gérer Tâches" class="btn-secondary" invisible="not odoo_project_id"/>
                         
                         <!-- Boutons pour partage public -->
@@ -186,7 +186,7 @@
                                         </a>
                                         <div class="dropdown-menu" role="menu">
                                             <t t-if="record.odoo_project_id.raw_value">
-                                                <a role="menuitem" type="object" name="action_open_odoo_project" class="dropdown-item">Ouvrir Projet Odoo</a>
+                                                <a role="menuitem" type="object" name="action_open_odoo_project" class="dropdown-item">Voir l'exécution</a>
                                                 <a role="menuitem" type="object" name="action_open_odoo_tasks" class="dropdown-item">Gérer Tâches</a>
                                                 <div class="dropdown-divider"/>
                                             </t>
@@ -380,7 +380,7 @@
                                         </a>
                                         <div class="dropdown-menu" role="menu">
                                             <t t-if="record.odoo_project_id.raw_value">
-                                                <a role="menuitem" type="object" name="action_open_odoo_project" class="dropdown-item">Ouvrir Projet Odoo</a>
+                                                <a role="menuitem" type="object" name="action_open_odoo_project" class="dropdown-item">Voir l'exécution</a>
                                                 <a role="menuitem" type="object" name="action_open_odoo_tasks" class="dropdown-item">Gérer Tâches</a>
                                                 <div class="dropdown-divider"/>
                                             </t>

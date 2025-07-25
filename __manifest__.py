@@ -9,9 +9,12 @@
     """,
     'author': 'Your Name/Organization', # TODO: Replace with actual author
     'website': 'http://www.yourwebsite.com', # TODO: Replace with actual website
-    'depends': ['base', 'project', 'mail', 'website', 'hr'],
+    'depends': ['base', 'project', 'mail', 'website', 'hr', 'calendar'],
     'data': [
-        # Views defining actions and structures must be loaded first
+        # Security files loaded first to ensure groups are defined
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        # Views defining actions and structures must be loaded after security
         'views/strategic_plan_views.xml',
         'views/strategic_pillar_views.xml',
         'views/strategic_axis_views.xml',
@@ -25,14 +28,13 @@
         
         'views/public_templates.xml',
         'views/public_templates_extra.xml',
+        'views/public_templates_modern.xml',
+        'views/modern_dashboard.xml',
         # Wizard views
         'wizard/government_project_wizard_views.xml',
         # Menu views loaded after all actions
         'views/dashboard_views.xml',
         'views/menu_views.xml',
-        # Security files loaded last to ensure models are registered
-        'security/ir.model.access.csv',
-        'security/security.xml',
         # Currency configuration
         'data/currency_xof_data.xml',
         # Demo data files
@@ -42,6 +44,8 @@
         'data/government_projects_demo_data.xml',
         'data/employees_demo_data.xml',
         'data/project_tasks_demo_data.xml',
+        'data/government_events_demo_data.xml',
+        'data/government_decisions_demo_data.xml',
         
     ],
     'installable': True,
