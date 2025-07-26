@@ -30,7 +30,11 @@
 
 1.  **Download:** Download the module from the [GitHub repository](https://github.com/loi200812/sama-etat).
 2.  **Add to Odoo:** Place the `sama-etat` folder into your Odoo `addons` directory.
-3.  **Install:**
+3.  **Install Dependencies:** This module requires the following Python packages: `qrcode` and `pillow`. You can install them using pip:
+    ```bash
+    pip install qrcode pillow
+    ```
+4.  **Install:**
     *   Restart your Odoo server.
     *   Go to **Apps** in your Odoo instance.
     *   Click on **Update Apps List**.
