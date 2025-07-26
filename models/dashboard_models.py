@@ -22,6 +22,8 @@ class SenegalPlanDashboard(models.Model):
         result = super().default_get(fields)
         return result
 
+    last_update_date = fields.Datetime(string="Dernière Mise à Jour", readonly=True)
+
     # Statistiques des projets
     total_projects = fields.Integer(string="Total des Projets", compute='_compute_project_stats')
     active_projects = fields.Integer(string="Projets Actifs", compute='_compute_project_stats')

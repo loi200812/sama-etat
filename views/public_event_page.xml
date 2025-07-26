@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="public_event_page" name="Événement - Page Publique">
+            <t t-call="sama_etat.modern_public_layout">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="senegal-card">
+                            <div class="card-header bg-primary text-white">
+                                <h2 class="card-title mb-0">
+                                    <i class="fa fa-calendar-alt me-2"/>
+                                    <t t-esc="event.name"/>
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <strong>Type :</strong> <t t-esc="dict(event._fields['event_type'].selection).get(event.event_type)"/><br/>
+                                        <strong>Date :</strong> <span t-field="event.event_date" t-options='{"widget": "date"}'/><br/>
+                                        <strong>Lieu :</strong> <t t-esc="event.location"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Organisateur :</strong><br/>
+                                        <t t-if="event.organizer_id">
+                                            <a t-attf-href="/senegal2050/ministry/#{event.organizer_id.id}" class="text-decoration-none">
+                                                <t t-esc="event.organizer_id.name"/>
+                                            </a>
+                                        </t>
+                                        <t t-else="">Non défini</t>
+                                    </div>
+                                </div>
+
+                                <t t-if="event.description">
+                                    <h4>Description</h4>
+                                    <p t-field="event.description" class="lead"/>
+                                </t>
+
+                                <t t-if="event.project_id">
+                                    <h4>Projet Associé</h4>
+                                    <div class="alert alert-info">
+                                        <a t-attf-href="/senegal2050/project/#{event.project_id.id}" class="alert-link">
+                                            <strong t-field="event.project_id.name"/>
+                                        </a>
+                                    </div>
+                                </t>
+
+                                <t t-if="event.strategic_objective_id">
+                                    <h4>Objectif Stratégique</h4>
+                                    <div class="alert alert-success">
+                                        <a t-attf-href="/senegal2050/objective/#{event.strategic_objective_id.id}" class="alert-link">
+                                            <strong t-field="event.strategic_objective_id.name"/>
+                                        </a>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="qr-code-container">
+                            <h5>Partager cet événement</h5>
+                            <img t-attf-src="data:image/png;base64,#{qr_code}" 
+                                 alt="QR Code de l'événement" class="img-fluid mb-3" style="max-width: 200px;"/>
+                            <p class="small text-muted mb-3">Scannez ce code QR pour partager</p>
+                            <input type="text" class="form-control" 
+                                   t-att-value="event_url" readonly="readonly"
+                                   onclick="this.select();"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

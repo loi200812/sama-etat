@@ -15,6 +15,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         # Views defining actions and structures must be loaded after security
+        'views/views.xml',
         'views/strategic_plan_views.xml',
         'views/strategic_pillar_views.xml',
         'views/strategic_axis_views.xml',
@@ -30,11 +31,14 @@
         'views/public_templates_extra.xml',
         'views/public_templates_modern.xml',
         'views/modern_dashboard.xml',
+        'views/public_decision_page.xml',
+        'views/public_event_page.xml',
         # Wizard views
         'wizard/government_project_wizard_views.xml',
         # Menu views loaded after all actions
         'views/dashboard_views.xml',
         'views/menu_views.xml',
+        'views/public_map.xml',
         # Currency configuration
         'data/currency_xof_data.xml',
         # Demo data files

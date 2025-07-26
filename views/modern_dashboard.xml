@@ -143,110 +143,49 @@
                                 </div>
                             </div>
                             <div class="modern-card-body">
-                                <!-- Simulation de projets récents avec navigation -->
                                 <div class="row g-3">
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                                            <div class="me-3">
-                                                <div class="bg-primary bg-opacity-10 p-2 rounded-3">
-                                                    <i class="fas fa-digital-tachograph text-primary"></i>
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">
-                                                    <a href="/senegal2050/project/1" class="text-decoration-none text-primary fw-medium">
-                                                        PROJ-2024-001 - Digitalisation des Services Publics
-                                                    </a>
-                                                </h6>
-                                                <p class="text-muted small mb-1">
-                                                    <a href="/senegal2050/ministry/1" class="text-muted text-decoration-none">
-                                                        <i class="fas fa-building me-1"></i>
-                                                        Ministère de la Transformation Numérique
-                                                    </a>
-                                                </p>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <span class="badge bg-success bg-opacity-10 text-success">En cours</span>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="modern-progress me-2" style="width: 80px;">
-                                                            <div class="modern-progress-bar" style="width: 75%;"></div>
-                                                        </div>
-                                                        <small class="text-muted">75%</small>
+                                    <t t-foreach="recent_projects" t-as="project">
+                                        <div class="col-12">
+                                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                                <div class="me-3">
+                                                    <div class="bg-primary bg-opacity-10 p-2 rounded-3">
+                                                        <i class="fas fa-project-diagram text-primary"></i>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="text-end">
-                                                <small class="text-muted">Il y a 2h</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                                            <div class="me-3">
-                                                <div class="bg-success bg-opacity-10 p-2 rounded-3">
-                                                    <i class="fas fa-graduation-cap text-success"></i>
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">
-                                                    <a href="/senegal2050/project/2" class="text-decoration-none text-primary fw-medium">
-                                                        PROJ-2024-002 - Réforme du Système Éducatif
-                                                    </a>
-                                                </h6>
-                                                <p class="text-muted small mb-1">
-                                                    <a href="/senegal2050/ministry/2" class="text-muted text-decoration-none">
-                                                        <i class="fas fa-building me-1"></i>
-                                                        Ministère de l'Éducation Nationale
-                                                    </a>
-                                                </p>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <span class="badge bg-warning bg-opacity-10 text-warning">Planifié</span>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="modern-progress me-2" style="width: 80px;">
-                                                            <div class="modern-progress-bar" style="width: 30%;"></div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-1">
+                                                        <a t-attf-href="/senegal2050/project/#{project.id}" class="text-decoration-none text-primary fw-medium">
+                                                            <t t-esc="project.project_code"/> - <t t-esc="project.name"/>
+                                                        </a>
+                                                    </h6>
+                                                    <p class="text-muted small mb-1">
+                                                        <t t-if="project.ministry_id">
+                                                            <a t-attf-href="/senegal2050/ministry/#{project.ministry_id.id}" class="text-muted text-decoration-none">
+                                                                <i class="fas fa-building me-1"></i>
+                                                                <t t-esc="project.ministry_id.name"/>
+                                                            </a>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <i class="fas fa-building me-1"></i>
+                                                            Ministère non défini
+                                                        </t>
+                                                    </p>
+                                                    <div class="d-flex align-items-center gap-3">
+                                                        <span t-field="project.status" t-options='{"widget": "badge"}' class="badge bg-success bg-opacity-10 text-success"/>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="modern-progress me-2" style="width: 80px;">
+                                                                <div class="modern-progress-bar" t-attf-style="width: #{project.progress}%;"></div>
+                                                            </div>
+                                                            <small class="text-muted"><t t-esc="round(project.progress, 1)"/>%</small>
                                                         </div>
-                                                        <small class="text-muted">30%</small>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="text-end">
-                                                <small class="text-muted">Il y a 5h</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                                            <div class="me-3">
-                                                <div class="bg-info bg-opacity-10 p-2 rounded-3">
-                                                    <i class="fas fa-hospital text-info"></i>
+                                                <div class="text-end">
+                                                    <small class="text-muted"><span t-field="project.write_date" t-options='{"widget": "relative"}'/></small>
                                                 </div>
                                             </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">
-                                                    <a href="/senegal2050/project/3" class="text-decoration-none text-primary fw-medium">
-                                                        PROJ-2024-003 - Modernisation du Système de Santé
-                                                    </a>
-                                                </h6>
-                                                <p class="text-muted small mb-1">
-                                                    <a href="/senegal2050/ministry/3" class="text-muted text-decoration-none">
-                                                        <i class="fas fa-building me-1"></i>
-                                                        Ministère de la Santé et de l'Action Sociale
-                                                    </a>
-                                                </p>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <span class="badge bg-primary bg-opacity-10 text-primary">Validé</span>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="modern-progress me-2" style="width: 80px;">
-                                                            <div class="modern-progress-bar" style="width: 90%;"></div>
-                                                        </div>
-                                                        <small class="text-muted">90%</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="text-end">
-                                                <small class="text-muted">Il y a 1j</small>
-                                            </div>
                                         </div>
-                                    </div>
+                                    </t>
                                 </div>
                             </div>
                         </div>

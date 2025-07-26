@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Government Decision 1: Approval of the new hospital project in Dakar -->
+        <record id="decision_1" model="government.decision">
+            <field name="name">Approval of the new hospital project in Dakar</field>
+            <field name="description">The council of ministers has approved the construction of a new hospital in Dakar.</field>
+            <field name="decision_date" eval="(datetime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+            <field name="ministry_id" ref="ministry_health"/>
+            <field name="project_id" ref="project_project_1"/>
+            <field name="latitude">14.7167</field>
+            <field name="longitude">-17.4677</field>
+        </record>
+
+        <!-- Government Decision 2: Budget allocation for road infrastructure in Thiès -->
+        <record id="decision_2" model="government.decision">
+            <field name="name">Budget allocation for road infrastructure in Thiès</field>
+            <field name="description">The ministry of finance has allocated the budget for the road infrastructure project in Thiès.</field>
+            <field name="decision_date" eval="(datetime.now() - timedelta(days=75)).strftime('%Y-%m-%d')"/>
+            <field name="ministry_id" ref="ministry_infrastructure"/>
+            <field name="project_id" ref="project_project_2"/>
+            <field name="latitude">14.7833</field>
+            <field name="longitude">-16.9333</field>
+        </record>
+
+        <!-- Government Decision 3: Launch of the agricultural support program in Saint-Louis -->
+        <record id="decision_3" model="government.decision">
+            <field name="name">Launch of the agricultural support program in Saint-Louis</field>
+            <field name="description">The government has officially launched the agricultural support program in the Saint-Louis region.</field>
+            <field name="decision_date" eval="(datetime.now() - timedelta(days=100)).strftime('%Y-%m-%d')"/>
+            <field name="ministry_id" ref="ministry_agriculture"/>
+            <field name="project_id" ref="project_project_3"/>
+            <field name="latitude">16.0333</field>
+            <field name="longitude">-16.4833</field>
+        </record>
+    </data>
+</odoo>

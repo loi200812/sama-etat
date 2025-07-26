@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Government Project 1: Construction of a new hospital in Dakar -->
+        <record id="project_project_1" model="project.project">
+            <field name="name">Construction of a new hospital in Dakar</field>
+            <field name="description">This project aims to build a modern hospital in the capital city of Dakar to improve healthcare services.</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="partner_id" ref="base.partner_demo_portal"/>
+            <field name="stage_id" ref="project.project_stage_1"/>
+            <field name="ministry_id" ref="ministry_health"/>
+            <field name="budget">15000000.00</field>
+            <field name="start_date" eval="(datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="latitude">14.7167</field>
+            <field name="longitude">-17.4677</field>
+        </record>
+
+        <!-- Government Project 2: Road infrastructure development in Thiès -->
+        <record id="project_project_2" model="project.project">
+            <field name="name">Road infrastructure development in Thiès</field>
+            <field name="description">This project focuses on improving the road network in the Thiès region to boost economic activities.</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="partner_id" ref="base.partner_demo_portal"/>
+            <field name="stage_id" ref="project.project_stage_2"/>
+            <field name="ministry_id" ref="ministry_infrastructure"/>
+            <field name="budget">25000000.00</field>
+            <field name="start_date" eval="(datetime.now() - timedelta(days=60)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.now() + timedelta(days=500)).strftime('%Y-%m-%d')"/>
+            <field name="latitude">14.7833</field>
+            <field name="longitude">-16.9333</field>
+        </record>
+
+        <!-- Government Project 3: Agricultural support program in Saint-Louis -->
+        <record id="project_project_3" model="project.project">
+            <field name="name">Agricultural support program in Saint-Louis</field>
+            <field name="description">This project provides support to farmers in the Saint-Louis region to enhance agricultural productivity.</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="partner_id" ref="base.partner_demo_portal"/>
+            <field name="stage_id" ref="project.project_stage_3"/>
+            <field name="ministry_id" ref="ministry_agriculture"/>
+            <field name="budget">10000000.00</field>
+            <field name="start_date" eval="(datetime.now() - timedelta(days=90)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.now() + timedelta(days=250)).strftime('%Y-%m-%d')"/>
+            <field name="latitude">16.0333</field>
+            <field name="longitude">-16.4833</field>
+        </record>
+
+        <!-- Government Project 4: Renewable energy initiative in Ziguinchor -->
+        <record id="project_project_4" model="project.project">
+            <field name="name">Renewable energy initiative in Ziguinchor</field>
+            <field name="description">This project aims to promote the use of renewable energy sources in the Ziguinchor region.</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="partner_id" ref="base.partner_demo_portal"/>
+            <field name="stage_id" ref="project.project_stage_1"/>
+            <field name="ministry_id" ref="ministry_energy"/>
+            <field name="budget">12000000.00</field>
+            <field name="start_date" eval="(datetime.now() - timedelta(days=120)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.now() + timedelta(days=400)).strftime('%Y-%m-%d')"/>
+            <field name="latitude">12.5833</field>
+            <field name="longitude">-16.2667</field>
+        </record>
+
+        <!-- Government Project 5: Educational program for girls in Kaolack -->
+        <record id="project_project_5" model="project.project">
+            <field name="name">Educational program for girls in Kaolack</field>
+            <field name="description">This project focuses on improving access to education for girls in the Kaolack region.</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="partner_id" ref="base.partner_demo_portal"/>
+            <field name="stage_id" ref="project.project_stage_2"/>
+            <field name="ministry_id" ref="ministry_education"/>
+            <field name="budget">8000000.00</field>
+            <field name="start_date" eval="(datetime.now() - timedelta(days=150)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.now() + timedelta(days=300)).strftime('%Y-%m-%d')"/>
+            <field name="latitude">14.1667</field>
+            <field name="longitude">-16.0833</field>
+        </record>
+    </data>
+</odoo>

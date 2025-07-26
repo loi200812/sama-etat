@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Government Event 1: Groundbreaking ceremony for the new hospital in Dakar -->
+        <record id="event_1" model="government.event">
+            <field name="name">Groundbreaking ceremony for the new hospital in Dakar</field>
+            <field name="description">The President will attend the groundbreaking ceremony for the new hospital in Dakar.</field>
+            <field name="event_date" eval="(datetime.now() - timedelta(days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="ministry_id" ref="ministry_health"/>
+            <field name="project_id" ref="project_project_1"/>
+            <field name="latitude">14.7167</field>
+            <field name="longitude">-17.4677</field>
+        </record>
+
+        <!-- Government Event 2: Inauguration of the new road in Thiès -->
+        <record id="event_2" model="government.event">
+            <field name="name">Inauguration of the new road in Thiès</field>
+            <field name="description">The Prime Minister will inaugurate the newly constructed road in the Thiès region.</field>
+            <field name="event_date" eval="(datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="ministry_id" ref="ministry_infrastructure"/>
+            <field name="project_id" ref="project_project_2"/>
+            <field name="latitude">14.7833</field>
+            <field name="longitude">-16.9333</field>
+        </record>
+
+        <!-- Government Event 3: Workshop for farmers in Saint-Louis -->
+        <record id="event_3" model="government.event">
+            <field name="name">Workshop for farmers in Saint-Louis</field>
+            <field name="description">A workshop will be held to train farmers on new agricultural techniques as part of the support program.</field>
+            <field name="event_date" eval="(datetime.now() + timedelta(days=10)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="ministry_id" ref="ministry_agriculture"/>
+            <field name="project_id" ref="project_project_3"/>
+            <field name="latitude">16.0333</field>
+            <field name="longitude">-16.4833</field>
+        </record>
+    </data>
+</odoo>
