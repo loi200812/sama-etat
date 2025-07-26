@@ -33,6 +33,9 @@
         'views/modern_dashboard.xml',
         'views/public_decision_page.xml',
         'views/public_event_page.xml',
+        'views/public_objective_page.xml',
+        'views/public_axis_page.xml',
+        'views/public_pillar_page.xml',
         # Wizard views
         'wizard/government_project_wizard_views.xml',
         # Menu views loaded after all actions

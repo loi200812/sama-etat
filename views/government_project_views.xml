@@ -110,6 +110,10 @@
                                 <field name="start_date"/>
                                 <field name="end_date"/>
                             </group>
+                            <group string="Géolocalisation">
+                                <field name="latitude"/>
+                                <field name="longitude"/>
+                            </group>
                             <group string="Responsabilités">
                                 <field name="ministry_id" options="{'no_create': True}"/>
                                 <field name="manager_id"/>

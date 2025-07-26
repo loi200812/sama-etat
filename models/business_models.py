@@ -50,6 +50,10 @@ class GovernmentProject(models.Model):
         ('2', 'Urgente'),
         ('3', 'Critique')
     ], string="Priorité", default='0')
+
+    # Geolocation
+    latitude = fields.Float(string='Latitude', digits=(10, 7))
+    longitude = fields.Float(string='Longitude', digits=(10, 7))
     
     # Informations sur l'avancement
     progress = fields.Float(string="Pourcentage d'avancement", compute='_compute_progress', store=True)
@@ -302,6 +306,10 @@ class GovernmentDecision(models.Model):
     # Indicateurs de performance
     is_on_track = fields.Boolean(string="Dans les Temps", compute='_compute_is_on_track', store=True)
     days_until_deadline = fields.Integer(string="Jours Avant Échéance", compute='_compute_days_until_deadline', store=True)
+
+    # Geolocation
+    latitude = fields.Float(string='Latitude', digits=(10, 7))
+    longitude = fields.Float(string='Longitude', digits=(10, 7))
     
     @api.depends('implementation_deadline', 'implementation_status')
     def _compute_is_on_track(self):
@@ -382,6 +390,10 @@ class GovernmentEvent(models.Model):
     _name = 'government.event'
     _description = 'Événement Public'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    # Geolocation
+    latitude = fields.Float(string='Latitude', digits=(10, 7))
+    longitude = fields.Float(string='Longitude', digits=(10, 7))
 
     name = fields.Char(string="Nom de l'Événement", required=True, tracking=True)
     event_date = fields.Date(string="Date de l'Événement", tracking=True)
