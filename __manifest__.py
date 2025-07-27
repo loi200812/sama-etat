@@ -43,6 +43,7 @@
         'views/dashboard_views.xml',
         'views/menu_views.xml',
         'views/public_map.xml',
+        'views/website_homepage.xml',
         # Currency configuration
         'data/currency_xof_data.xml',
         # Demo data files
