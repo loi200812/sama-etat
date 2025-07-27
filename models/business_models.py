@@ -472,6 +472,7 @@ class GovernmentEvent(models.Model):
             'res_model': 'calendar.event',
             'res_id': self.odoo_event_id.id,
             'view_mode': 'form',
+            'views': [(self.env.ref('sama_etat.view_calendar_event_form_simplified').id, 'form')],
             'target': 'current',
         }
     

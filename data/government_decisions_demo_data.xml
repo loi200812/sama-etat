@@ -19,6 +19,8 @@
             <field name="progress_percentage">100.0</field>
             <field name="last_follow_up_date">2025-03-15</field>
             <field name="description">Le Conseil des Ministres approuve le financement intégral du Plan Sénégal 2050 avec allocation de 500 milliards de FCFA pour les projets prioritaires de la première phase.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_decision_demo_2" model="government.decision">
@@ -37,6 +39,8 @@
             <field name="last_follow_up_date">2025-07-20</field>
             <field name="next_follow_up_date">2025-08-15</field>
             <field name="description">Décision d'accélérer la mise en œuvre de la transformation digitale avec création d'une Task Force interministérielle et déblocage d'un budget d'urgence de 50 milliards FCFA.</field>
+            <field name="latitude">14.758945</field>
+            <field name="longitude">-17.393754</field>
         </record>
 
         <record id="government_decision_demo_3" model="government.decision">
@@ -55,6 +59,8 @@
             <field name="last_follow_up_date">2025-07-10</field>
             <field name="next_follow_up_date">2025-09-01</field>
             <field name="description">Création de 5 zones économiques spéciales dédiées aux énergies renouvelables et à l'économie circulaire avec incitations fiscales exceptionnelles pour les investisseurs.</field>
+            <field name="latitude">14.165208</field>
+            <field name="longitude">-16.075775</field>
         </record>
 
         <record id="government_decision_demo_4" model="government.decision">
@@ -72,6 +78,8 @@
             <field name="progress_percentage">0.0</field>
             <field name="next_follow_up_date">2025-08-30</field>
             <field name="description">Lancement d'un programme d'urgence pour l'emploi des jeunes avec objectif de créer 100,000 emplois directs et indirects d'ici fin 2025.</field>
+            <field name="latitude">13.772589</field>
+            <field name="longitude">-13.671006</field>
         </record>
 
         <!-- Décisions liées aux événements -->
@@ -90,6 +98,8 @@
             <field name="progress_percentage">100.0</field>
             <field name="last_follow_up_date">2025-01-20</field>
             <field name="description">Institution d'un grand dialogue national impliquant tous les acteurs de la société civile pour valider les orientations du Plan Sénégal 2050.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_decision_demo_6" model="government.decision">
@@ -108,6 +118,8 @@
             <field name="last_follow_up_date">2025-07-15</field>
             <field name="next_follow_up_date">2025-08-20</field>
             <field name="description">Création d'une agence dédiée à la coordination de la transformation digitale avec budget autonome et pouvoirs étendus.</field>
+            <field name="latitude">14.7833</field>
+            <field name="longitude">-17.4000</field>
         </record>
 
         <record id="government_decision_demo_7" model="government.decision">
@@ -126,6 +138,8 @@
             <field name="last_follow_up_date">2025-07-01</field>
             <field name="next_follow_up_date">2025-08-25</field>
             <field name="description">Création d'un fonds de 100 milliards FCFA pour financer les innovations dans le domaine de l'économie verte et des technologies propres.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <!-- Décisions stratégiques transversales -->
@@ -144,6 +158,8 @@
             <field name="last_follow_up_date">2025-07-18</field>
             <field name="next_follow_up_date">2025-08-10</field>
             <field name="description">Réforme majeure des processus de gestion des projets publics avec introduction d'outils digitaux de suivi et de nouveaux indicateurs de performance.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_decision_demo_9" model="government.decision">
@@ -161,6 +177,8 @@
             <field name="progress_percentage">0.0</field>
             <field name="next_follow_up_date">2025-09-15</field>
             <field name="description">Lancement d'un programme de partenariat public-privé pour moderniser les infrastructures de santé avec investissement cible de 200 milliards FCFA.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_decision_demo_10" model="government.decision">
@@ -178,6 +196,8 @@
             <field name="progress_percentage">0.0</field>
             <field name="next_follow_up_date">2025-10-01</field>
             <field name="description">Transformation complète du système éducatif avec intégration des technologies 4.0, formation des enseignants et révision des programmes scolaires.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <!-- Décision critique en retard -->
@@ -197,6 +217,8 @@
             <field name="next_follow_up_date">2025-08-05</field>
             <field name="follow_up_notes">Projet bloqué en raison de difficultés de financement et de résistance des syndicats de transport. Nécessite une intervention de haut niveau pour débloquer la situation.</field>
             <field name="description">Modernisation complète du système de transport public de Dakar avec introduction de bus électriques et digitalisation des systèmes de paiement.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.2667</field>
         </record>
 
         <!-- Décision d'urgence récente -->
@@ -216,6 +238,8 @@
             <field name="next_follow_up_date">2025-08-01</field>
             <field name="follow_up_notes">Mise en œuvre accélérée en cours. Toutes les équipes mobilisées. Suivi quotidien nécessaire compte tenu de l'urgence climatique.</field>
             <field name="description">Plan d'urgence pour prévenir et gérer les inondations avec déploiement de moyens exceptionnels et coordination renforcée entre services.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
     </data>

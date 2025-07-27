@@ -117,7 +117,10 @@ class SamaEtatController(http.Controller):
 
     @http.route('/senegal2050/event/<int:event_id>', type='http', auth='public', website=True)
     def public_event_page(self, event_id, **kw):
-        event = request.env['government.event'].sudo().browse(event_id).read(['name', 'event_date', 'date_start', 'date_end', 'location', 'organizer_id', 'event_type', 'description', 'project_id', 'strategic_objective_id', 'status', 'odoo_event_id', 'latitude', 'longitude'])[0]
+        event_data = request.env['government.event'].sudo().browse(event_id).read(['name', 'event_date', 'date_start', 'date_end', 'location', 'organizer_id', 'event_type', 'description', 'project_id', 'strategic_objective_id', 'status', 'odoo_event_id', 'latitude', 'longitude'])
+        if not event_data:
+            return request.render('website.404')
+        event = event_data[0]
         if not event:
             return request.render('website.404')
             return request.render('website.404')

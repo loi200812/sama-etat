@@ -13,6 +13,8 @@
             <field name="strategic_objective_id" ref="objective_quality_education"/>
             <field name="status">completed</field>
             <field name="description">Cérémonie officielle de lancement du Plan Sénégal 2050 en présence des hautes autorités de l'État et des partenaires internationaux.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_event_demo_2" model="government.event">
@@ -25,6 +27,8 @@
             <field name="strategic_objective_id" ref="objective_technical_education"/>
             <field name="status">completed</field>
             <field name="description">Atelier de formation et de sensibilisation sur les enjeux de la transformation digitale pour les administrations publiques.</field>
+            <field name="latitude">14.7833</field>
+            <field name="longitude">-17.4000</field>
         </record>
 
         <record id="government_event_demo_3" model="government.event">
@@ -37,6 +41,8 @@
             <field name="strategic_objective_id" ref="objective_higher_education"/>
             <field name="status">ongoing</field>
             <field name="description">Conférence réunissant experts nationaux et internationaux pour discuter des stratégies d'économie verte et de développement durable.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_event_demo_4" model="government.event">
@@ -49,6 +55,8 @@
             <field name="strategic_objective_id" ref="objective_universal_health"/>
             <field name="status">planned</field>
             <field name="description">Réunion trimestrielle du comité de pilotage pour évaluer l'avancement des projets prioritaires du PSE 2.0.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_event_demo_5" model="government.event">
@@ -61,6 +69,8 @@
             <field name="strategic_objective_id" ref="objective_health_infrastructure"/>
             <field name="status">planned</field>
             <field name="description">Forum national réunissant jeunes, employeurs et institutions pour identifier des solutions innovantes à l'emploi des jeunes.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_event_demo_6" model="government.event">
@@ -73,6 +83,8 @@
             <field name="strategic_objective_id" ref="objective_youth_entrepreneurship"/>
             <field name="status">planned</field>
             <field name="description">Lancement officiel du programme d'innovation technologique agricole avec présentation des premiers projets pilotes.</field>
+            <field name="latitude">14.758945</field>
+            <field name="longitude">-17.393754</field>
         </record>
 
         <record id="government_event_demo_7" model="government.event">
@@ -85,6 +97,8 @@
             <field name="strategic_objective_id" ref="objective_youth_employment"/>
             <field name="status">planned</field>
             <field name="description">Atelier de renforcement des capacités des collectivités territoriales en matière de gouvernance et de gestion des projets locaux.</field>
+            <field name="latitude">14.779031</field>
+            <field name="longitude">-16.963900</field>
         </record>
 
         <record id="government_event_demo_8" model="government.event">
@@ -97,6 +111,8 @@
             <field name="strategic_objective_id" ref="objective_food_security"/>
             <field name="status">planned</field>
             <field name="description">Conférence sur les innovations technologiques et organisationnelles pour améliorer l'accès et la qualité des soins de santé.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_event_demo_9" model="government.event">
@@ -109,6 +125,8 @@
             <field name="strategic_objective_id" ref="objective_quality_education"/>
             <field name="status">planned</field>
             <field name="description">Cérémonie de reconnaissance des meilleures innovations pédagogiques et technologiques dans le secteur éducatif sénégalais.</field>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="government_event_demo_10" model="government.event">
@@ -121,6 +139,8 @@
             <field name="strategic_objective_id" ref="objective_food_security"/>
             <field name="status">planned</field>
             <field name="description">Sommet rassemblant décideurs, experts et partenaires pour définir la stratégie nationale d'infrastructures durables et résilientes.</field>
+            <field name="latitude">14.7833</field>
+            <field name="longitude">-17.4000</field>
         </record>
 
     </data>

@@ -70,7 +70,7 @@
                                         document.addEventListener('DOMContentLoaded', function () {
                                             var decisionMap = L.map('decision_map').setView([<t t-esc="decision['latitude']"/>, <t t-esc="decision['longitude']"/>], 13);
 
-                                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                                 attribution: '&#169; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                             }).addTo(decisionMap);
 
@@ -78,7 +78,7 @@
                                                 .addTo(decisionMap)
                                                 .bindPopup('<b>' + "<t t-esc="decision['title']"/>" + '</b>').openPopup();
 
-                                            decisionMap.invalidateSize();
+                                            setTimeout(function() { decisionMap.invalidateSize(); }, 200);
                                         });
 //]]>
                                     </script>

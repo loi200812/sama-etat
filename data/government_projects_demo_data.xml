@@ -16,6 +16,8 @@
             <field name="strategic_objective_id" ref="objective_quality_education"/>
             <field name="ministry_id" ref="ministry_education"/>
             <field name="budget_id" ref="budget_education_2025"/>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="project_digital_schools" model="government.project">
@@ -26,7 +28,9 @@
             <field name="status">validated</field>
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_digital_skills"/>
-            <field name="ministry_id" ref="ministry_education"/>
+            <field name="ministry_id" ref="ministry_digital"/>
+            <field name="latitude">14.758945</field>
+            <field name="longitude">-17.393754</field>
         </record>
 
         <record id="project_construction_ecoles_rurales" model="government.project">
@@ -38,6 +42,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_quality_education"/>
             <field name="ministry_id" ref="ministry_education"/>
+            <field name="latitude">14.165208</field>
+            <field name="longitude">-16.075775</field>
         </record>
 
         <!-- Projets Santé -->
@@ -51,6 +57,8 @@
             <field name="strategic_objective_id" ref="objective_universal_health"/>
             <field name="ministry_id" ref="ministry_health"/>
             <field name="budget_id" ref="budget_health_2025"/>
+            <field name="latitude">13.772589</field>
+            <field name="longitude">-13.671006</field>
         </record>
 
         <record id="project_health_infrastructure" model="government.project">
@@ -62,6 +70,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_health_infrastructure"/>
             <field name="ministry_id" ref="ministry_health"/>
+            <field name="latitude">12.564148</field>
+            <field name="longitude">-16.263982</field>
         </record>
 
         <!-- Projets Agriculture -->
@@ -75,6 +85,8 @@
             <field name="strategic_objective_id" ref="objective_food_security"/>
             <field name="ministry_id" ref="ministry_agriculture"/>
             <field name="budget_id" ref="budget_agriculture_2025"/>
+            <field name="latitude">16.032631</field>
+            <field name="longitude">-16.481817</field>
         </record>
 
         <record id="project_agricultural_mechanization" model="government.project">
@@ -86,6 +98,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_agricultural_modernization"/>
             <field name="ministry_id" ref="ministry_agriculture"/>
+            <field name="latitude">14.6550</field>
+            <field name="longitude">-16.2314</field>
         </record>
 
         <!-- Projets Emploi des Jeunes -->
@@ -98,6 +112,8 @@
             <field name="priority">3</field>
             <field name="strategic_objective_id" ref="objective_youth_entrepreneurship"/>
             <field name="ministry_id" ref="ministry_employment"/>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="project_youth_training" model="government.project">
@@ -109,6 +125,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_youth_employment"/>
             <field name="ministry_id" ref="ministry_employment"/>
+            <field name="latitude">14.779031</field>
+            <field name="longitude">-16.963900</field>
         </record>
 
         <!-- Projets Industrie -->
@@ -121,6 +139,8 @@
             <field name="priority">3</field>
             <field name="strategic_objective_id" ref="objective_industrial_parks"/>
             <field name="ministry_id" ref="ministry_industry"/>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="project_local_content" model="government.project">
@@ -132,6 +152,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_local_content"/>
             <field name="ministry_id" ref="ministry_industry"/>
+            <field name="latitude">14.866557</field>
+            <field name="longitude">-15.899496</field>
         </record>
 
         <!-- Projets Numérique -->
@@ -144,6 +166,8 @@
             <field name="priority">3</field>
             <field name="strategic_objective_id" ref="objective_digital_infrastructure"/>
             <field name="ministry_id" ref="ministry_digital"/>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.467686</field>
         </record>
 
         <record id="project_e_government" model="government.project">
@@ -155,6 +179,8 @@
             <field name="priority">3</field>
             <field name="strategic_objective_id" ref="objective_digital_services"/>
             <field name="ministry_id" ref="ministry_digital"/>
+            <field name="latitude">14.7833</field>
+            <field name="longitude">-17.4000</field>
         </record>
 
         <!-- Projets Infrastructure -->
@@ -167,6 +193,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_quality_education"/>
             <field name="ministry_id" ref="ministry_infrastructure"/>
+            <field name="latitude">13.772589</field>
+            <field name="longitude">-13.671006</field>
         </record>
 
         <!-- Projets Énergie -->
@@ -179,6 +207,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_digital_infrastructure"/>
             <field name="ministry_id" ref="ministry_mines_energy"/>
+            <field name="latitude">12.564148</field>
+            <field name="longitude">-16.263982</field>
         </record>
 
         <!-- Projets Eau et Assainissement -->
@@ -191,6 +221,8 @@
             <field name="priority">3</field>
             <field name="strategic_objective_id" ref="objective_universal_health"/>
             <field name="ministry_id" ref="ministry_water"/>
+            <field name="latitude">14.866557</field>
+            <field name="longitude">-15.899496</field>
         </record>
 
         <!-- Projets Transversaux -->
@@ -203,6 +235,8 @@
             <field name="priority">2</field>
             <field name="strategic_objective_id" ref="objective_digital_services"/>
             <field name="ministry_id" ref="ministry_urban_planning"/>
+            <field name="latitude">14.716677</field>
+            <field name="longitude">-17.2667</field>
         </record>
 
     </data>

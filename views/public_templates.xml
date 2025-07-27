@@ -200,7 +200,7 @@
                                         document.addEventListener('DOMContentLoaded', function () {
                                             var projectMap = L.map('project_map').setView([<t t-esc="project['latitude']"/>, <t t-esc="project['longitude']"/>], 13);
 
-                                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                                 attribution: '&#169; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                             }).addTo(projectMap);
 
@@ -208,7 +208,7 @@
                                                 .addTo(projectMap)
                                                 .bindPopup('<b>' + "<t t-esc="project['name']"/>" + '</b>').openPopup();
 
-                                            projectMap.invalidateSize();
+                                            setTimeout(function() { projectMap.invalidateSize(); }, 200);
                                         });
 //]]>
                                     </script>

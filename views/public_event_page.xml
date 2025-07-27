@@ -63,7 +63,7 @@
                                         document.addEventListener('DOMContentLoaded', function () {
                                             var eventMap = L.map('event_map').setView([<t t-esc="event['latitude']"/>, <t t-esc="event['longitude']"/>], 13);
 
-                                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                                 attribution: '&#169; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                             }).addTo(eventMap);
 
@@ -71,7 +71,7 @@
                                                 .addTo(eventMap)
                                                 .bindPopup('<b>' + "<t t-esc="event['name']"/>" + '</b>').openPopup();
 
-                                            eventMap.invalidateSize();
+                                            setTimeout(function() { eventMap.invalidateSize(); }, 200);
                                         });
 //]]>
                                     </script>

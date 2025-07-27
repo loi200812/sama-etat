@@ -9,7 +9,7 @@
     """,
     'author': 'Your Name/Organization', # TODO: Replace with actual author
     'website': 'http://www.yourwebsite.com', # TODO: Replace with actual website
-    'depends': ['base', 'project', 'mail', 'website', 'hr', 'calendar'],
+    'depends': ['base', 'project', 'mail', 'website', 'hr', 'calendar', 'website_event'],
     'data': [
         # Security files loaded first to ensure groups are defined
         'security/security.xml',
@@ -36,6 +36,7 @@
         'views/public_objective_page.xml',
         'views/public_axis_page.xml',
         'views/public_pillar_page.xml',
+        'views/calendar_event_views.xml',
         # Wizard views
         'wizard/government_project_wizard_views.xml',
         # Menu views loaded after all actions
