@@ -44,6 +44,7 @@
         'views/menu_views.xml',
         'views/public_map.xml',
         'views/website_homepage.xml',
+        'views/website_about.xml',
         # Currency configuration
         'data/currency_xof_data.xml',
         # Demo data files
