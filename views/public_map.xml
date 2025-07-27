@@ -37,11 +37,11 @@
                         document.addEventListener('DOMContentLoaded', function () {
                             var map = L.map('mapid').setView([14.4974, -14.4524], 7); // Centered on Senegal
 
-                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                 attribution: '&#169; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             }).addTo(map);
 
-                            map.invalidateSize(); // Crucial for correct rendering after div is visible
+                            setTimeout(function() { map.invalidateSize(); }, 200); // Crucial for correct rendering after div is visible
 
                             var project_layer = L.layerGroup().addTo(map);
                             var decision_layer = L.layerGroup().addTo(map);

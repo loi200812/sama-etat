@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
         <!-- Security Groups -->
         <record id="group_gov_planner" model="res.groups">
             <field name="name">Gouvernance Numérique / Planificateur</field>

@@ -189,30 +189,6 @@
                                         <p t-esc="project['strategic_objective_id'][1]" class="mb-0 mt-2"/>
                                     </div>
                                 </t>
-
-                                <t t-if="project['latitude'] and project['longitude']">
-                                    <h4>Localisation</h4>
-                                    <p>Latitude: <span t-esc="project['latitude']"/>, Longitude: <span t-esc="project['longitude']"/></p>
-                                    <div id="project_map" style="height: 300px; width: 100%;"></div>
-                                    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-                                    <script>
-//<![CDATA[
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            var projectMap = L.map('project_map').setView([<t t-esc="project['latitude']"/>, <t t-esc="project['longitude']"/>], 13);
-
-                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                attribution: '&#169; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                            }).addTo(projectMap);
-
-                                            L.marker([<t t-esc="project['latitude']"/>, <t t-esc="project['longitude']"/>])
-                                                .addTo(projectMap)
-                                                .bindPopup('<b>' + "<t t-esc="project['name']"/>" + '</b>').openPopup();
-
-                                            setTimeout(function() { projectMap.invalidateSize(); }, 200);
-                                        });
-//]]>
-                                    </script>
-                                </t>
                             </div>
                         </div>
                     </div>

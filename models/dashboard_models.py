@@ -11,12 +11,11 @@ class SenegalPlanDashboard(models.Model):
         """Récupère ou crée l'unique instance du dashboard"""
         dashboard = self.search([], limit=1)
         if not dashboard:
-            dashboard = self.create({})
+            return result
         # Force recompute of all fields by updating a dummy field
         dashboard.write({'last_update_date': fields.Datetime.now()})
         return dashboard
     
-    @api.model
     def default_get(self, fields):
         """Valeurs par défaut pour le dashboard"""
         result = super().default_get(fields)
