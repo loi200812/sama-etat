@@ -114,7 +114,7 @@ Authors: Mamadou Mbagnick DOGUE, Rassol DOGUE
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/loi200812/sama-etat
     cd sama_etat
     ```
 2.  **Create a `docker-compose.yml` file in the root of your project:**
@@ -202,7 +202,7 @@ Authors: Mamadou Mbagnick DOGUE, Rassol DOGUE
     ```
 4.  **Clone SAMA ÉTAT module:**
     ```bash
-    git clone <repository_url> /opt/odoo18/custom_addons/sama_etat
+    git clone https://github.com/loi200812/sama-etat /opt/odoo18/custom_addons/sama_etat
     ```
 5.  **Configure Odoo:**
     Create an Odoo configuration file (e.g., `/etc/odoo/odoo.conf`):
@@ -248,7 +248,7 @@ Authors: Mamadou Mbagnick DOGUE, Rassol DOGUE
 
 1.  **Cloner le dépôt :**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/loi200812/sama-etat
     cd sama_etat
     ```
 2.  **Créer un fichier `docker-compose.yml` à la racine de votre projet :**
@@ -336,7 +336,7 @@ Authors: Mamadou Mbagnick DOGUE, Rassol DOGUE
     ```
 4.  **Cloner le module SAMA ÉTAT :**
     ```bash
-    git clone <repository_url> /opt/odoo18/custom_addons/sama_etat
+    git clone https://github.com/loi200812/sama-etat /opt/odoo18/custom_addons/sama_etat
     ```
 5.  **Configurer Odoo :**
     Créer un fichier de configuration Odoo (par exemple, `/etc/odoo/odoo.conf`) :
